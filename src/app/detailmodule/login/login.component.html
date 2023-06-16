@@ -1,0 +1,59 @@
+<section class="main">
+    <aside class="container">
+        <form [formGroup]="signform" class="login-form" *ngIf="current">
+
+            <h1 style="font-size: 3rem;font-weight: 700;margin-bottom: 1rem;">Login</h1>
+            <div class="sm:col-span-3">
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900"
+                    style="font-size: 1.2rem;">Email</label>
+                <div class="mt-2">
+                    <input type="email" name="email" id="email" autocomplete="given-email" formControlName="email"
+                        style="font-size: 1.3rem; padding-left: 1rem;"
+                        class="block w-full rounded-md border-0 py-3 px-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text sm:leading-12">
+                    <mat-error *ngIf="signform.controls.email.touched && signform.controls.email.errors ">
+                        Email is<strong>required</strong>
+                    </mat-error>
+                </div>
+
+            </div>
+            <button class="login-button" (click)="Login(signform.value)">Sign-In</button>
+        </form>
+        <form [formGroup]="registerform" class="login-form" *ngIf="popup">
+
+            <h1 style="font-size: 3rem;font-weight: 700;margin-bottom: 1rem;">Register</h1>
+            <div class="sm:col-span-3">
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900"
+                    style="font-size: 1.2rem;">Email</label>
+                <div class="mt-2">
+                    <input type="email" name="email" id="email" autocomplete="given-email" formControlName="email"
+                        [(ngModel)]="displayemail.email" style="font-size: 1.3rem; padding-left: 1rem;"
+                        class="block w-full rounded-md border-0 py-3 px-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text sm:leading-12">
+                    <!-- <mat-error *ngIf="signform.controls.email.touched && signform.controls.email.errors ">
+                            Email is<strong>required</strong>
+                        </mat-error> -->
+                </div>
+                <label for="username" class="block text-sm font-medium leading-6 text-gray-900"
+                    style="font-size: 1.2rem;">UserName</label>
+                <div class="mt-2">
+                    <input type="text" name="name" id="name" autocomplete="given-name" formControlName="username"
+                        style="font-size: 1.3rem; padding-left: 1rem;"
+                        class="block w-full rounded-md border-0 py-3 px-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text sm:leading-12">
+                    <!-- <mat-error *ngIf="signform.controls.email.touched && signform.controls.email.errors ">
+                                    Email is<strong>required</strong>
+                                </mat-error> -->
+                </div>
+                <label for="number" class="block text-sm font-medium leading-6 text-gray-900"
+                    style="font-size: 1.2rem;">Number</label>
+                <div class="mt-2">
+                    <input type="number" name="number" id="number" autocomplete="given-number" formControlName="number"
+                        style="font-size: 1.3rem; padding-left: 1rem;"
+                        class="block w-full rounded-md border-0 py-3 px-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text sm:leading-12">
+                    <!-- <mat-error *ngIf="signform.controls.email.touched && signform.controls.email.errors ">
+                                    Email is<strong>required</strong>
+                                </mat-error> -->
+                </div>
+            </div>
+            <button class="login-button" (click)="Register(registerform.value)">Submit</button>
+        </form>
+    </aside>
+</section>

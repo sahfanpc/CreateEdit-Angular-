@@ -1,0 +1,344 @@
+<!-- <div style="height:100vh; display: flex;position: relative;width: 100%;">
+    <div style="width:60%;height: 100vh;position: fixed;left: 0;top: 0;" class="section-left">
+
+    </div>
+    <div style="background-color: #fff; height: 100vh;width: 40%;">
+        <aside class="header" style="background-color: rgba(207, 121, 121, 0.818);height: 20rem;width: 100%;">VELZON
+        </aside>
+        <aside class="body-sec"></aside>
+    </div>
+</div> -->
+<aside class="main">
+    <aside class="left-container">
+        <div [ngStyle]="getStyleObject()">
+            <!-- fhrhghfgh -->
+            <p>{{data}}</p>
+        </div>
+
+    </aside>
+    <aside class="right-container">
+
+        <aside class="section1" style="font-weight: 800;font-size: 2.3rem;">
+            VELZON
+        </aside>
+        <aside class="section2">
+            <aside class="option1">
+                <ul>
+                    <li style="text-decoration: none; font-size: 1.5rem;font-weight: 500;padding: 1rem 0;">CHANGES
+                    </li>
+                    <li style="text-decoration: none;">
+                        <mat-accordion class="example-headers-align" multi>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        ChangesData
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        <mat-icon>account_circle</mat-icon>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+
+                                <mat-form-field [formGroup]="submitform">
+                                    <mat-label>Type Something</mat-label>
+                                    <input matInput type="text" formControlName="data">
+                                </mat-form-field>
+                                <button mat-raised-button color="primary"
+                                    (click)="Submit(submitform.value)">submit</button>
+
+                                <!-- <mat-form-field>
+                                    <mat-label>Age</mat-label>
+                                    <input matInput type="number" min="1">
+                                </mat-form-field> -->
+
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        design
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        <mat-icon>map</mat-icon>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+
+                                <form action="" [formGroup]="styleform">
+                                    <mat-form-field>
+                                        <mat-label>color</mat-label>
+                                        <input matInput type="text" formControlName="color">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>fontsize</mat-label>
+                                        <input matInput type="text" formControlName="fontsize">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>fontweight</mat-label>
+                                        <input matInput type="text" formControlName="fontweight">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>textstrock</mat-label>
+                                        <input matInput type="text" formControlName="textstrock">
+                                    </mat-form-field>
+                                    <button mat-raised-button color="primary"
+                                        (click)="Check(styleform.value)">submit</button>
+                                </form>
+                            </mat-expansion-panel>
+
+
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                    <a href="">This is the primary content of the panel.</a>
+                                </mat-expansion-panel-header>
+
+                            </mat-expansion-panel>
+
+                        </mat-accordion>
+                    </li>
+
+
+
+
+                </ul>
+                <div class="container">
+                    <div class="radio-tile-group">
+                        <button class="input-container" (click)="imageStyle()">
+                            <input id="walk" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon walk-icon">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                        <path
+                                            d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
+                                    </svg>
+                                </div>
+                                <label for="image" class="radio-tile-label">Image</label>
+                            </div>
+                        </button>
+
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio" checked>
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                        <path
+                                            d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z" />
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Vedio</label>
+                            </div>
+                        </div>
+
+                        <div class="input-container">
+                            <input id="drive" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon car-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z">
+                                        </path>
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                    </svg>
+                                </div>
+                                <label for="drive" class="radio-tile-label">Drive</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="bike" class="radio-button" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <div class="icon bike-icon">
+                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path
+                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <label for="bike" class="radio-tile-label">Bike</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+            <!-- <aside class="option3" style=" width:100%;height: 20rem;background-color: rgba(208, 196, 196, 0.57);"> -->
+            <!-- <mat-form-field>
+                    <mat-label>imageurl</mat-label>
+                    <input matInput type="text" formControlName="image">
+                </mat-form-field>
+                <button mat-raised-button color="primary">submit</button> -->
+            <!-- </aside> -->
+
+
+            <!-- (click)="Submit(imageform.value)" [formGroup]="imageform" -->
+
+
+        </aside>
+    </aside>
+</aside>
