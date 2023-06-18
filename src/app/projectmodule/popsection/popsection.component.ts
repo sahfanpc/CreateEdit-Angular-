@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, OnInit, Inject,TemplateRef } from '@angular/core';
+import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import {
   FormBuilder,
   FormsModule,
@@ -35,25 +35,37 @@ import { MaindashboardComponent } from '../maindashboard/maindashboard.component
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSwitch,
+    NgSwitchCase,NgIf
   ],
 })
 export class PopsectionComponent implements OnInit {
+  image:any;
+  width:any;
+  height:any;
+  vedio:any;
+  checkdata:any;
+
+
   constructor(
     private router: Router,
     private db: SarviceService,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<MaindashboardComponent> // @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+    public dialogRef: MatDialogRef<MaindashboardComponent>, // @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data:'data'
+  ) {
+this.checkdata=data;
+console.log(this.checkdata);
+
+  }
+ 
   onNoClick(): void {
     this.dialogRef.close();
   }
-  // submitform = this.fb.group({
-  //   imgurl: ['', Validators.required],
-  // });
-  ngOnInit(): void {}
-  // submit(data: any) {
-  // console.log(data);
 
-  // this.db.style(data);
-  // }
+  ngOnInit(): void {
+    console.log(this.data);
+    
+  }
+  
 }

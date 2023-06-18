@@ -1,26 +1,53 @@
-<!-- <aside class="section" [formGroup]="submitform">
-    <section class="inputs">
-        <mat-form-field>
-            <mat-label>url</mat-label>
-            <input matInput type="text" formControlName="imgurl">
-        </mat-form-field>
-    </section>
-    <div mat-dialog-actions style="position: absolute;bottom: 0;">
-        <button mat-button (click)="submit(submitform.value)">Submit</button>
-        <button mat-button mat-dialog-close>Close</button>
-    </div>
 
-</aside> -->
-<!--  -->
-<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
-<!-- <div mat-dialog-content>
-    <p>What's your favorite animal?</p>
-    <mat-form-field>
-        <mat-label>Favorite Animal</mat-label>
-        <input matInput [(ngModel)]="animal">
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="animal" cdkFocusInitial>Ok</button>
-</div> -->
+
+
+
+
+
+
+
+<aside [ngSwitch]="checkdata">
+<aside *ngSwitchCase=" 'image' ">
+    <div mat-dialog-content>
+        <p>Edit your image</p>
+        <mat-form-field>
+            <mat-label>image</mat-label>
+            <input matInput [(ngModel)]="image" placeholder="imgurl">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>img-width</mat-label>
+            <input matInput [(ngModel)]="width" placeholder="width">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>img-height</mat-label>
+            <input matInput [(ngModel)]="height" placeholder="height">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="{image,width,height}" cdkFocusInitial>Ok</button>
+    </div>
+</aside>
+<aside *ngSwitchCase=" 'vedios' ">
+    <div mat-dialog-content>
+        <p>Edit your vedio</p>
+        <mat-form-field>
+            <mat-label>vedio</mat-label>
+            <input matInput [(ngModel)]="vedio" placeholder="vediourl">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>img-width</mat-label>
+            <input matInput [(ngModel)]="width" placeholder="width">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>img-height</mat-label>
+            <input matInput [(ngModel)]="height" placeholder="height">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="{vedio,width,height}" cdkFocusInitial>Ok</button>
+    </div>
+</aside>
+    
+</aside>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgSwitch, NgSwitchCase } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,6 +26,7 @@ import { PopsectionComponent } from './popsection/popsection.component';
     MatLabel,
     FormsModule,
     ReactiveFormsModule,
+    NgSwitch,NgSwitchCase
   ],
 })
 export class ProjectmoduleModule {}

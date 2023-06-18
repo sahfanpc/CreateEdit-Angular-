@@ -18,6 +18,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    .style1{
+      display: none;
+    }
+    .style2{
+      display: block;
+    }
   }
 
   .right-container {

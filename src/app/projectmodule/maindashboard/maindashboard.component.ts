@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild ,Inject} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
@@ -13,8 +13,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NgIf, NgStyle } from '@angular/common';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { NgClass, NgIf, NgStyle } from '@angular/common';
+import { MatDialog, MatDialogModule ,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PopsectionComponent } from '../popsection/popsection.component';
 
 @Component({
@@ -37,16 +37,24 @@ import { PopsectionComponent } from '../popsection/popsection.component';
     NgStyle,
     MatDialogModule,
     NgIf,
+    NgClass
   ],
 })
 export class MaindashboardComponent implements OnInit {
+
+
   panelOpenState = false;
   data: any;
   designcolor: any;
   designsize: any;
   designweight: any;
   designstrock: any;
-  value: any;
+  imgurl: any;
+  imgwidth:any;
+  imgheight:any;
+  vdourl: any;
+  vdowidth:any;
+  vdoheight:any;
 
   // color1: any;
   // fontsize1: any;/
@@ -77,6 +85,18 @@ export class MaindashboardComponent implements OnInit {
       // Example: setting background color to blue
     };
   }
+  imgstyle(){
+    return{
+      'width':this.imgwidth,
+      'height':this.imgheight
+    }
+  }
+  vediostyle(){
+    return{
+      'width':this.vdowidth,
+      'height':this.vdoheight
+    }
+  }
   Submit(value: any) {
     console.log(value.data);
     this.data = value.data;
@@ -89,12 +109,42 @@ export class MaindashboardComponent implements OnInit {
     this.designstrock = data.textstrock;
     // console.log(this.designvalue.color);
   }
-  imageStyle() {
-    const dialogRef = this.dialog.open(PopsectionComponent, {});
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      this.value = result;
+  imageStyle():void {
+    const dialogRef = this.dialog.open(PopsectionComponent, {
+      data:"image"
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+     if(result){
+      const img = result;
+      this.imgurl=img.image;
+     this.imgwidth=img.width;
+     this.imgheight=img.height;
+     
+      console.log(this.imgurl.image);
+     }
+     
+      
+    });
+  }
+  vedioStyle(){
+    const dialogRef = this.dialog.open(PopsectionComponent, {
+      data:"vedios"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+     if(result){
+      const vdo = result;
+      this.vdourl=vdo.vedio;
+     this.vdowidth=vdo.width;
+     this.vdoheight=vdo.height;
+      console.log(this.imgurl.image);
+     }
+     
+      
+    }); 
   }
 }
