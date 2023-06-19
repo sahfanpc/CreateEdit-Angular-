@@ -1,53 +1,59 @@
-
-
-
-
-
-
-
-
 <aside [ngSwitch]="checkdata">
-<aside *ngSwitchCase=" 'image' ">
-    <div mat-dialog-content>
-        <p>Edit your image</p>
-        <mat-form-field>
-            <mat-label>image</mat-label>
-            <input matInput [(ngModel)]="image" placeholder="imgurl">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>img-width</mat-label>
-            <input matInput [(ngModel)]="width" placeholder="width">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>img-height</mat-label>
-            <input matInput [(ngModel)]="height" placeholder="height">
-        </mat-form-field>
-    </div>
-    <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">No Thanks</button>
-        <button mat-button [mat-dialog-close]="{image,width,height}" cdkFocusInitial>Ok</button>
-    </div>
-</aside>
-<aside *ngSwitchCase=" 'vedios' ">
-    <div mat-dialog-content>
-        <p>Edit your vedio</p>
-        <mat-form-field>
-            <mat-label>vedio</mat-label>
-            <input matInput [(ngModel)]="vedio" placeholder="vediourl">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>img-width</mat-label>
-            <input matInput [(ngModel)]="width" placeholder="width">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>img-height</mat-label>
-            <input matInput [(ngModel)]="height" placeholder="height">
-        </mat-form-field>
-    </div>
-    <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">No Thanks</button>
-        <button mat-button [mat-dialog-close]="{vedio,width,height}" cdkFocusInitial>Ok</button>
-    </div>
-</aside>
-    
+    <aside *ngSwitchCase=" 'image' " class="section">
+        <div mat-dialog-content>
+            <p>Edit your image</p>
+            <mat-form-field appearance="outline" class="input-link">
+                <mat-label>image</mat-label>
+                <input matInput [(ngModel)]="image" placeholder="imgurl">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>img-width</mat-label>
+                <input matInput [(ngModel)]="width" placeholder="width">
+            </mat-form-field>
+            <mat-form-field class="select" appearance="outline">
+                <mat-label>unit</mat-label>
+                <select matNativeControl required [(ngModel)]="unit">
+                    <option value="px">PX</option>
+                    <option value="rem">REM</option>
+                </select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>img-height</mat-label>
+                <input matInput [(ngModel)]="height" placeholder="height">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">No Thanks</button>
+            <button mat-button [mat-dialog-close]="{image,width,height,unit}" cdkFocusInitial>Ok</button>
+        </div>
+    </aside>
+    <aside *ngSwitchCase=" 'vedios' " class="section">
+        <div mat-dialog-content>
+            <p>Edit your vedio</p>
+            <mat-form-field appearance="outline" class="input-link">
+                <mat-label>vedio</mat-label>
+                <input matInput [(ngModel)]="vedio" placeholder="vediourl">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>img-width</mat-label>
+                <input matInput [(ngModel)]="width" placeholder="width">
+            </mat-form-field>
+            <mat-form-field class="select" appearance="outline">
+                <mat-label>unit</mat-label>
+                <select matNativeControl required [(ngModel)]="unit">
+                    <option value="px">PX</option>
+                    <option value="rem">REM</option>
+                </select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>img-height</mat-label>
+                <input matInput [(ngModel)]="height" placeholder="height">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">No Thanks</button>
+            <button mat-button [mat-dialog-close]="{vedio,width,height,unit}" cdkFocusInitial>Ok</button>
+        </div>
+    </aside>
+
 </aside>

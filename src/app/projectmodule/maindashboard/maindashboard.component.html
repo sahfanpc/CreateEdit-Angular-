@@ -9,16 +9,23 @@
     </div>
 </div> -->
 <aside class="main">
-    <aside class="left-container">
-        <div [ngStyle]="getStyleObject()">
-            <!-- fhrhghfgh -->
-            <p>{{data}}</p>
-            <!-- <img src="{{imgurl}}" alt=""> -->
-            
-        </div>
-        <img src="{{imgurl}}" [ngStyle]="imgstyle()" [ngClass]="imgurl?'style2':'style1'">
-<video src="{{vdourl}}" controls autoplay [ngStyle]="vediostyle()" [ngClass]="vdourl?'style2':'style1'"></video>
+    <aside class="left-container" [ngStyle]="getStyles()">
 
+        <!-- fhrhghfgh -->
+        <div>
+            <p [ngStyle]="getStyleObject()">{{data}}</p>
+        </div>
+        <div *ngIf="divider1" class="divider1"></div>
+        <div>
+            <img src="{{imgurl}}" [ngStyle]="imgstyle()" [ngClass]="imgurl?'style2':'style1'">
+        </div>
+        <div *ngIf="divider1  && imgurl" class="divider1"></div>
+        <!-- <mat-divider *ngIf="divider1" class="divider"></mat-divider> -->
+        <div>
+            <video src="{{vdourl}}" controls autoplay [ngStyle]="vediostyle()"
+                [ngClass]="vdourl?'style2':'style1'"></video>
+        </div>
+        <div *ngIf="divider1  && vedioary" class="divider1"></div>
     </aside>
     <aside class="right-container">
 
@@ -131,7 +138,7 @@
                             </div>
                         </button>
 
-                        <div class="input-container">
+                        <button class="input-container" (click)="flexcolumn()">
                             <input id="drive" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
                                 <div class="icon car-icon">
@@ -143,10 +150,10 @@
                                         <path d="M0 0h24v24H0z" fill="none"></path>
                                     </svg>
                                 </div>
-                                <label for="drive" class="radio-tile-label">Drive</label>
+                                <label for="drive" class="radio-tile-label">Column</label>
                             </div>
-                        </div>
-                        <div class="input-container">
+                        </button>
+                        <button class="input-container" (click)="flexrow()">
                             <input id="bike" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
                                 <div class="icon bike-icon">
@@ -158,10 +165,10 @@
                                         </path>
                                     </svg>
                                 </div>
-                                <label for="bike" class="radio-tile-label">Bike</label>
+                                <label for="bike" class="radio-tile-label">Row</label>
                             </div>
-                        </div>
-                        <div class="input-container">
+                        </button>
+                        <button class="input-container" (click)="divider()">
                             <input id="bike" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
                                 <div class="icon bike-icon">
@@ -173,9 +180,9 @@
                                         </path>
                                     </svg>
                                 </div>
-                                <label for="bike" class="radio-tile-label">Bike</label>
+                                <label for="bike" class="radio-tile-label">Divider</label>
                             </div>
-                        </div>
+                        </button>
                         <div class="input-container">
                             <input id="bike" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">

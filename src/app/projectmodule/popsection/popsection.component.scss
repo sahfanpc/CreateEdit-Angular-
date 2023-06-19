@@ -1,6 +1,16 @@
 .section {
-  width: 25rem;
-  height: 25rem;
+  width: 20rem;
+  height: auto;
   position: relative;
+  // text-align: center;
+  // display: flex;
   //   overflow-y: scroll;
+  ::ng-deep {
+    .input-link {
+      width: 20rem;
+    }
+    .select {
+      width: 6rem;
+    }
+  }
 }
