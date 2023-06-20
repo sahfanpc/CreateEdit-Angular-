@@ -53,34 +53,21 @@ import { PopsectionComponent } from '../popsection/popsection.component';
 })
 export class MaindashboardComponent implements OnInit {
   panelOpenState = false;
-  vedioary: Array<any> = [];
+  vediooary:Array<any>=[];
+  textary:Array<any>=[];
+  imageary:Array<any>=[];
   data: any;
   designcolor: any;
   designsize: any;
   designweight: any;
   designstrock: any;
-  imgurl: any;
-  imgwidth: any;
-  imgheight: any;
-  vdourl: any;
-  vdowidth: any;
-  vdoheight: any;
-  // vdourl: any;
-  // vdowidth: any;
-  // vdoheight: any;
   column: any;
   padding: any;
   divider1: boolean = false;
-  // color1: any;
-  // fontsize1: any;/
-  // fontweight1: any;
 
   constructor(private fb: FormBuilder, public dialog: MatDialog) {}
   submitform = this.fb.group({
     data: ['', Validators.required],
-  });
-
-  styleform = this.fb.group({
     color: [''],
     fontsize: [''],
     fontweight: [''],
@@ -88,53 +75,40 @@ export class MaindashboardComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.getStyleObject();
-    //  this. pushfunction();
-    // console.log(this.data.value);
   }
-  // pushfunction() {
-
-  //       const value = {
-  //         vdourl: this.vdourl,
-  //         vdowidth: this.vdowidth,
-  //         vdoheight: this.vdoheight
-  //   };
-  //   this.vedioary.push(value)
+  // ngstyle......................
+  // getStyleObject() {
+  //     return{
+  //       color:this.textary[i].color
+  //     }
   // }
-  getStyleObject() {
-    return {
-      color: this.designcolor,
-      'font-size': this.designsize, // Example: setting font size to 18px
-      'font-weight': this.designweight,
-      '-webkit-text-stroke': this.designstrock,
-
-      // Example: setting background color to blue
-    };
-  }
-  imgstyle() {
-    return {
-      width: this.imgwidth,
-      height: this.imgheight,
-    };
-  }
-  vediostyle() {
-    return {
-      width: this.vedioary,
-      height: this.vedioary,
-    };
-  }
+  // vediostyle() {
+  //   return {
+  //     width: this.vdowidth,
+  //     height: this.vdoheight,
+  //   };
+  // }
   Submit(value: any) {
-    console.log(value.data);
-    this.data = value.data;
+    console.log(this.textary);
+    // this.data = value.data;
+    this.textary.push(value);
+// for(let i=0;i<this.textary.length;i++){
+//   this.designcolor=this.textary[i].color;
+// }
+
+    this.designsize=value.fontsize;
+    this.designweight=value.fontweight;
+    this.designstrock=value.textstrock;
+
   }
-  Check(data: any) {
-    console.log(data, 'set');
-    this.designcolor = data.color;
-    this.designsize = data.fontsize;
-    this.designweight = data.fontweight;
-    this.designstrock = data.textstrock;
-    // console.log(this.designvalue.color);
-  }
+  // Check(data: any) {
+  //   console.log(data, 'set');
+  //   this.designcolor = data.color;
+  //   this.designsize = data.fontsize;
+  //   this.designweight = data.fontweight;
+  //   this.designstrock = data.textstrock;
+  //   // console.log(this.designvalue.color);
+  // }
   imageStyle(): void {
     const dialogRef = this.dialog.open(PopsectionComponent, {
       data: 'image',
@@ -144,42 +118,26 @@ export class MaindashboardComponent implements OnInit {
       console.log('The dialog was closed');
 
       if (result) {
-        const img = result;
-        console.log(img);
 
-        this.imgurl = img.image;
-        this.imgwidth = img.width + img.unit;
-        this.imgheight = img.height + img.unit;
-
-        console.log(this.imgurl.image);
-        console.log(this.imgwidth);
+        this.imageary.push(result);
+        console.log(this.imageary);
+        
       }
     });
   }
   vedioStyle() {
     const dialogRef = this.dialog.open(PopsectionComponent, {
-      data: 'vedios',
+      data: 'vedio',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed ');
 
       if (result) {
-        const vdo = result;
-        this.vdourl = vdo.vedio;
-        this.vdowidth = vdo.width + vdo.unit;
-        this.vdoheight = vdo.height + vdo.unit;
-        // console.log(this.imgurl.image);
-        console.log(vdo, 'vdo');
+        // console.log(result,"result");
+        
+        this.vediooary.push(result)
+        console.log(this.vediooary, 'vdooo');
 
-        // const value = {
-        //   vdourl: vdo.vedio,
-        //   vdowidth: vdo.width + vdo.unit,
-        //   vdoheight: vdo.height + vdo.unit,
-        // };
-        // this.vedioary.push(value);
-        // console.log(this.vedioary, 'array');
-
-        // console.log(value, 'aaaa');
       }
     });
   }
