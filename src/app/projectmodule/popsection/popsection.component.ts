@@ -28,19 +28,6 @@ import { MatSelectModule } from '@angular/material/select';
   selector: 'app-popsection',
   templateUrl: './popsection.component.html',
   styleUrls: ['./popsection.component.scss'],
-  standalone: true,
-  imports: [
-    MatDialogModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgSwitch,
-    NgSwitchCase,
-    NgIf,
-    MatSelectModule,
-  ],
 })
 export class PopsectionComponent implements OnInit {
   image: any;
@@ -49,12 +36,17 @@ export class PopsectionComponent implements OnInit {
   unit: any;
   vedio: any;
   checkdata: any;
+  fname: any;
+  lname: any;
+  sex: any;
+  number: any;
+  profileurl: any;
 
   constructor(
     private router: Router,
     private db: SarviceService,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<MaindashboardComponent>, // @Inject(MAT_DIALOG_DATA) public data: DialogData
+    public dialogRef: MatDialogRef<MaindashboardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: 'data'
   ) {
     this.checkdata = data;

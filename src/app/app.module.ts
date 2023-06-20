@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MaindashboardComponent } from './projectmodule/maindashboard/maindashboard.component';
+// import { NumberGroupDirective } from './number-group.directive';
+import { ProjectmoduleModule } from './projectmodule/projectmodule.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,7 @@ import { MaindashboardComponent } from './projectmodule/maindashboard/maindashbo
     MatInputModule,
     MatFormFieldModule,
     MatExpansionModule,
-    MaindashboardComponent,
+    ProjectmoduleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

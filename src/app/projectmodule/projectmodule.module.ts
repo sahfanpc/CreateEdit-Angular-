@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgSwitch, NgSwitchCase } from '@angular/common';
+import { CommonModule, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,8 +11,19 @@ import { MaindashboardComponent } from './maindashboard/maindashboard.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PopsectionComponent } from './popsection/popsection.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { NumberGroupDirective } from '../number-group.directive';
+import { RouterLink } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatAccordion } from '@angular/material/expansion';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
-  declarations: [MaindashboardComponent, PopsectionComponent],
+  declarations: [
+    MaindashboardComponent,
+    NumberGroupDirective,
+    PopsectionComponent,
+  ],
   imports: [
     CommonModule,
     MatExpansionModule,
@@ -23,12 +34,30 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatLabel,
     FormsModule,
     ReactiveFormsModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    RouterLink,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    MatDialogModule,
     NgSwitch,
     NgSwitchCase,
-    MatDividerModule,
+    NgIf,
+    MatSelectModule,
   ],
+  exports: [],
 })
 export class ProjectmoduleModule {}

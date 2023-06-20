@@ -1,22 +1,46 @@
-
 <aside class="main">
     <aside class="left-container" [ngStyle]="getStyles()">
 
         <!-- fhrhghfgh -->
         <div *ngFor="let item of textary; let i=index">
-            <p [ngStyle]="{ 'color': textary[i].color,'font-size': textary[i].fontsize,'font-weight': textary[i].fontweight,'-webkit-text-stroke': textary[i].textstrock }" style="padding: 1rem;">{{item.data}}</p>
+            <p [ngStyle]="{ 'color': textary[i].color,'font-size': textary[i].fontsize,'font-weight': textary[i].fontweight,'-webkit-text-stroke': textary[i].textstrock }"
+                style="padding: 1rem;" (click)="Deletetext(i)">{{item.data}}</p>
         </div>
         <div *ngIf="divider1" class="divider1"></div>
         <div>
-            <img *ngFor="let item of imageary; let i = index" src="{{item.image}}" [ngStyle]="{'width':imageary[i].width + imageary[i].unit,'height':imageary[i].height + imageary[i].unit}" [ngClass]="item.image?'style2':'style1'">
+            <img *ngFor="let item of imageary; let i = index" src="{{item.image}}"
+                [ngStyle]="{'width':imageary[i].width + imageary[i].unit,'height':imageary[i].height + imageary[i].unit}"
+                [ngClass]="item.image?'style2':'style1'" (click)="Deleteimg(i)">
         </div>
         <div *ngIf="divider1  && imageary" class="divider1"></div>
         <!-- <mat-divider *ngIf="divider1" class="divider"></mat-divider> -->
-        <div>
-            <video *ngFor="let item of vediooary; let i =index" src="{{item.vedio}}" controls autoplay  [ngStyle]="{'width':vediooary[i].width + vediooary[i].unit,'height':vediooary[i].height + vediooary[i].unit}"
+        <div *ngFor="let item of vediooary; let i =index" (click)="Deletevdo(i)"
+            style="padding: 2rem .5rem;background-color: black;" [ngClass]="item.vedio?'style2':'style1'">
+            <video src="{{item.vedio}}" controls autoplay
+                [ngStyle]="{'width':vediooary[i].width + vediooary[i].unit,'height':vediooary[i].height + vediooary[i].unit}"
                 [ngClass]="item.vedio?'style2':'style1'"></video>
         </div>
-        <!-- <div *ngIf="divider1  && vedioary" class="divider1"></div> -->
+        <div *ngFor="let item of profileary ; let i=index;" [ngClass]="profileary?'style2':'style1'">
+            <!-- card -->
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-title>{{item.fname + item.lname}}</mat-card-title>
+                        <mat-card-title>{{item.sex}}</mat-card-title>
+                        <mat-card-title [appNumberGroup]="datanumber">
+
+                        </mat-card-title>
+                        <mat-card-subtitle></mat-card-subtitle>
+                        <img mat-card-md-image src="{{item.profileurl}}" width="40rem" height="20rem"
+                            alt="Image of a Shiba Inu">
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-actions>
+                    <button mat-button (click)="Close(i)">Close</button>
+                </mat-card-actions>
+            </mat-card>
+            <!--  -->
+        </div>
     </aside>
     <aside class="right-container">
 
@@ -39,48 +63,12 @@
                                         <mat-icon>account_circle</mat-icon>
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
-                               <form action="" [formGroup]="submitform" >
-                                <mat-form-field >
-                                    <mat-label>Type Something</mat-label>
-                                    <input matInput type="text" formControlName="data">
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>color</mat-label>
-                                    <input matInput type="text" formControlName="color">
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>fontsize</mat-label>
-                                    <input matInput type="text" formControlName="fontsize">
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>fontweight</mat-label>
-                                    <input matInput type="text" formControlName="fontweight">
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <mat-label>textstrock</mat-label>
-                                    <input matInput type="text" formControlName="textstrock">
-                                </mat-form-field>
-                                <button mat-raised-button color="primary"
-                                    (click)="Submit(submitform.value)">submit</button>
-                                </form>
-                                <!-- <mat-form-field>
-                                    <mat-label>Age</mat-label>
-                                    <input matInput type="number" min="1">
-                                </mat-form-field> -->
-
-                            </mat-expansion-panel>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>
-                                        design
-                                    </mat-panel-title>
-                                    <mat-panel-description>
-                                        <mat-icon>map</mat-icon>
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-
-                                <!-- <form action="" [formGroup]="styleform"> -->
-                                    <!-- <mat-form-field>
+                                <form action="" [formGroup]="submitform">
+                                    <mat-form-field>
+                                        <mat-label>Type Something</mat-label>
+                                        <input matInput type="text" formControlName="data">
+                                    </mat-form-field>
+                                    <mat-form-field>
                                         <mat-label>color</mat-label>
                                         <input matInput type="text" formControlName="color">
                                     </mat-form-field>
@@ -95,12 +83,22 @@
                                     <mat-form-field>
                                         <mat-label>textstrock</mat-label>
                                         <input matInput type="text" formControlName="textstrock">
-                                    </mat-form-field> -->
-                                    <!-- <button mat-raised-button color="primary" -->
-                                        <!-- (click)="Check(styleform.value)">submit</button> -->
-                                <!-- </form> -->
-                            </mat-expansion-panel>
+                                    </mat-form-field>
+                                    <button mat-raised-button color="primary"
+                                        (click)="Submit(submitform.value)">submit</button>
+                                </form>
 
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        design
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        <mat-icon>map</mat-icon>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
 
                             <mat-expansion-panel hideToggle>
                                 <mat-expansion-panel-header>
@@ -111,8 +109,6 @@
 
                         </mat-accordion>
                     </li>
-
-
 
 
                 </ul>
@@ -133,7 +129,7 @@
                         </button>
 
                         <button class="input-container" (click)="vedioStyle()">
-                            <input id="bike" class="radio-button" type="radio" name="radio" >
+                            <input id="bike" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
                                 <div class="icon bike-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
@@ -149,12 +145,9 @@
                             <input id="drive" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
                                 <div class="icon car-icon">
-                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                                         <path
-                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z">
-                                        </path>
-                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                            d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 64V416H224V160H64zm384 0H288V416H448V160z" />
                                     </svg>
                                 </div>
                                 <label for="drive" class="radio-tile-label">Column</label>
@@ -164,12 +157,9 @@
                             <input id="bike" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
                                 <div class="icon bike-icon">
-                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                                         <path
-                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
-                                        </path>
+                                            d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 64V416H224V160H64zm384 0H288V416H448V160z" />
                                     </svg>
                                 </div>
                                 <label for="bike" class="radio-tile-label">Row</label>
@@ -190,21 +180,18 @@
                                 <label for="bike" class="radio-tile-label">Divider</label>
                             </div>
                         </button>
-                        <div class="input-container">
+                        <button class="input-container" (click)="Profile()">
                             <input id="bike" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
                                 <div class="icon bike-icon">
-                                    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                                         <path
-                                            d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z">
-                                        </path>
+                                            d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
                                     </svg>
                                 </div>
-                                <label for="bike" class="radio-tile-label">Bike</label>
+                                <label for="bike" class="radio-tile-label">Profile</label>
                             </div>
-                        </div>
+                        </button>
                         <div class="input-container">
                             <input id="bike" class="radio-button" type="radio" name="radio">
                             <div class="radio-tile">
@@ -344,19 +331,6 @@
                 </div>
 
             </aside>
-
-            <!-- <aside class="option3" style=" width:100%;height: 20rem;background-color: rgba(208, 196, 196, 0.57);"> -->
-            <!-- <mat-form-field>
-                    <mat-label>imageurl</mat-label>
-                    <input matInput type="text" formControlName="image">
-                </mat-form-field>
-                <button mat-raised-button color="primary">submit</button> -->
-            <!-- </aside> -->
-
-
-            <!-- (click)="Submit(imageform.value)" [formGroup]="imageform" -->
-
-
         </aside>
     </aside>
 </aside>
